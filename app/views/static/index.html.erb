@@ -1,0 +1,20 @@
+<h1>Static#index</h1>
+<p>Find me in app/views/static/index.html.erb</p>
+<% gosips=Gosip.all %>
+<% gosips.each do |gosip| %>
+        <p>
+        <% user = User.find_by(id: gosip.user_id) %>
+          <%= user.first_name %>
+          <%= gosip.title %>
+          
+          <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= gosip.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= user.first_name %></h6>
+    <p class="card-text"><%= gosip.content %></p>
+    <a href="#" class="card-link"><%= link_to "Gossip : #{gosip.id}", "/gosip/#{gosip.id}" %></a>
+    <a href="#" class="card-link"><%= link_to "suivant", "/gosip/#{gosip.id+1}" %></a>
+  </div>
+</div>
+        </p>
+      <% end %>

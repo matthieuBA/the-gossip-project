@@ -1,0 +1,17 @@
+<% gosip=Gosip.find_by(id: @gosip.id)  %>
+
+        <p>
+        <% user = User.find_by(id: gosip.user_id) %>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= gosip.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= user.first_name %> <%= user.last_name %></h6>
+    <p class="card-text"><%= gosip.content %></p>
+    <a href="#" class="card-link"><%= link_to "page de l'auteur :#{user.first_name}", "/user/#{user.id}" %></a><br/>
+    <a href="#" class="card-link"><%= link_to "Gossip suivant", "/gosip/#{gosip.id+1}" %></a><br/>
+  </div>
+</div>
+          
+          
+        </p>

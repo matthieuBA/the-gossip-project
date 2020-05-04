@@ -1,0 +1,8 @@
+<% @user = User.find_by(id: @user) %>
+<p>first name :<%= @user.first_name %><br/></p>
+<p>last name :<%= @user.last_name %><br/></p>
+<p>email :<%= @user.email %><br/></p>
+<%= link_to "page de l'auteur :#{@user.first_name}", "/user/#{@user.id}" %>
+
+
+
