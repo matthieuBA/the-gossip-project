@@ -6,24 +6,9 @@
 # PrivateMessage.destroy_all
 
 require "faker"
-city_id = []
-stroll_id = []
-city = []
-zip_code = []
-user = []
-city_array = []
-gosip_array = []
-
-100.times do |i|
-  # city_id[i] = rand(1..100)
-  # stroll_id[i] = rand(1..100)
-  # city[i] = Faker::Address.city
-  zip_code[i] = Faker::Address.zip_code
-end
 
 10.times do |i|
-  city = City.create(name: Faker::Address.city, zip_code: zip_code[i])
-  # city_array[i] = city
+  city = City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
   tag = Tag.create(title: Faker::Superhero.descriptor)
   puts "create city #{i}"
 end

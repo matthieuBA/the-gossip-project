@@ -4,12 +4,6 @@
 <% user_array = []%>
 <% users = (User.order(:first_name)).where(city_id: city.id) %>
 
-
-
-
-
-
-
 <div class="card" >
   <div class="card-body">
     City : <a href="#" class="card-link"><%= link_to "#{city.name}", "/city/#{city.id}" %></a><br/>
