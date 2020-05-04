@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "static/index"
   get "static/team"
   get "static/contact"
-  get get "/", to: "static#index"
+  get "/", to: "static#index"
   get "team", to: "static#team"
   get "contact", to: "static#contact"
   get "welcome/:id", to: "welcome#id"
