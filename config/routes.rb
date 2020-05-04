@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   get "welcome/:id", to: "welcome#id"
   get "gosip/:id", to: "gosip#id"
   get "user/:id", to: "user#id"
+  get "user/", to: "user#all"
+  get "users/", to: "user#all"
+  get "city/:id", to: "city#id"
+  get "city/", to: "city#all"
+  get "cities/", to: "city#all"
 end

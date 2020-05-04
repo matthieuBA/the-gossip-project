@@ -1,8 +1,29 @@
 <% @user = User.find_by(id: @user) %>
-<p>first name :<%= @user.first_name %><br/></p>
-<p>last name :<%= @user.last_name %><br/></p>
-<p>email :<%= @user.email %><br/></p>
-<%= link_to "page de l'auteur :#{@user.first_name}", "/user/#{@user.id}" %>
+<% city = (City.find_by(id: @user.city_id))%>
+
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
+    <p class="card-text"><%= @user.description %></p>
+    <a href="#" class="card-link"><%= link_to "City : #{city.name} ", "/city/#{city.id}" %></a><br/>
+  </div>
+</div>
+<% gosips=Gosip.all %>
+<% gosips.each do |gosip| %>
+
+<% user = User.find_by(id: gosip.user_id) %>
+<% if @user == user  %>
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title"><%= gosip.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @user.first_name %> <%= @user.last_name %></h6>
+    <p class="card-text"><%= gosip.content %></p>
+    <a href="#" class="card-link"><%= link_to "Gossip : #{gosip.id}", "/gosip/#{gosip.id}" %></a>
+  </div>
+</div>
+<% end %>
+<% end %>
 
 
 
